@@ -1,0 +1,24 @@
+.DS_Store
+
+# Secrets / tokens / local state
+**/credentials*
+**/tokens*
+**/*token*
+**/*.db
+**/*.sqlite
+**/*.sqlite3
+**/*.sock
+**/*.log
+**/session.json
+**/.env
+**/.env.*
+
+# Caches / temp
+**/cache/
+**/Cache/
+**/caches/
+**/Caches/
+**/.tmp*
+
+# Editor / plugin generated state
+config/nvim/.git/

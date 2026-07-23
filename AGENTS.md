@@ -40,9 +40,10 @@ Current setup order:
 3. `scripts/link-nvim.sh` — symlink Neovim/LazyVim config
 4. `scripts/link-starship.sh` — symlink Starship config
 5. `scripts/link-zed.sh` — symlink Zed settings
-6. `scripts/link-configs.sh` — symlink any remaining tracked configs into `~/.config`
-7. `scripts/sync-mise.sh` — install tools declared in mise config
-8. `scripts/sync-nvim.sh` — run LazyVim plugin sync
+6. `scripts/link-herdr.sh` — symlink Herdr config
+7. `scripts/link-configs.sh` — symlink any remaining tracked configs into `~/.config`
+8. `scripts/sync-mise.sh` — install tools declared in mise config
+9. `scripts/sync-nvim.sh` — run LazyVim plugin sync
 
 For mise only:
 

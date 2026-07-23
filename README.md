@@ -60,6 +60,8 @@ and are symlinked to:
 
 Skills are available globally to Pi and are loaded on-demand based on their `description` or explicitly with `/skill:name`.
 
+The `agent-browser` CLI is installed as a global npm package from `Brewfile`; `setup.sh` also runs `scripts/sync-agent-browser.sh` to install its browser runtime.
+
 ## mise
 
 mise is installed through `Brewfile`. The mise config lives at:

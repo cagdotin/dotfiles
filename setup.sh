@@ -43,6 +43,9 @@ run_if_exists "scripts/link-configs.sh"
 step "Install mise-managed tools"
 run_if_exists "scripts/sync-mise.sh"
 
+step "Install agent-browser browser runtime"
+run_if_exists "scripts/sync-agent-browser.sh"
+
 step "Sync Neovim / LazyVim"
 run_if_exists "scripts/sync-nvim.sh"
 

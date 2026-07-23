@@ -45,7 +45,8 @@ Current setup order:
 7. `scripts/link-pi-skills.sh` — symlink Pi global skills
 8. `scripts/link-configs.sh` — symlink any remaining tracked configs into `~/.config`
 9. `scripts/sync-mise.sh` — install tools declared in mise config
-10. `scripts/sync-nvim.sh` — run LazyVim plugin sync
+10. `scripts/sync-agent-browser.sh` — install agent-browser browser runtime
+11. `scripts/sync-nvim.sh` — run LazyVim plugin sync
 
 For mise only:
 
@@ -111,6 +112,8 @@ agents/skills -> ~/.pi/agent/skills
 ```
 
 Each skill should normally be a directory containing `SKILL.md`. Keep skill instructions safe to publish and do not commit Pi auth, settings, sessions, logs, or model stores from `~/.pi/agent`.
+
+When using the `agent-browser` skill, load the current workflow content from the installed CLI as instructed by the skill before running browser commands.
 
 ## Safety rules
 

@@ -19,6 +19,8 @@ brew "starship"
 cask "font-hack-nerd-font"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
+# Terminal emulator
+cask "ghostty"
 # Control your tools with a few keystrokes
 cask "raycast"
 cargo "bat"

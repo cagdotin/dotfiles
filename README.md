@@ -31,6 +31,7 @@ Currently safe-tracked from this machine:
 - `~/.config/starship.toml`
 - `~/.config/zed/settings.json`
 - `~/.config/herdr/config.toml`
+- `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty`
 - `~/.pi/agent/skills` — global Pi skills
 
 ## Not tracked directly
@@ -43,6 +44,20 @@ These may contain credentials, sessions, logs, caches, or machine-local data:
 - `~/.config/configstore`
 
 Document their setup manually instead of committing their full directories.
+
+## Ghostty
+
+Ghostty is installed through `Brewfile` as a Homebrew cask. Its config lives at:
+
+```text
+~/dev/dotfiles/config/ghostty/config.ghostty
+```
+
+and is symlinked to:
+
+```text
+~/Library/Application Support/com.mitchellh.ghostty/config.ghostty
+```
 
 ## Pi skills
 

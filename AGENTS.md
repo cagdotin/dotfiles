@@ -42,11 +42,12 @@ Current setup order:
 4. `scripts/link-starship.sh` — symlink Starship config
 5. `scripts/link-zed.sh` — symlink Zed settings
 6. `scripts/link-herdr.sh` — symlink Herdr config
-7. `scripts/link-pi-skills.sh` — symlink Pi global skills
-8. `scripts/link-configs.sh` — symlink any remaining tracked configs into `~/.config`
-9. `scripts/sync-mise.sh` — install tools declared in mise config
-10. `scripts/sync-agent-browser.sh` — install agent-browser browser runtime
-11. `scripts/sync-nvim.sh` — run LazyVim plugin sync
+7. `scripts/link-ghostty.sh` — symlink Ghostty config
+8. `scripts/link-pi-skills.sh` — symlink Pi global skills
+9. `scripts/link-configs.sh` — symlink any remaining tracked configs into `~/.config`
+10. `scripts/sync-mise.sh` — install tools declared in mise config
+11. `scripts/sync-agent-browser.sh` — install agent-browser browser runtime
+12. `scripts/sync-nvim.sh` — run LazyVim plugin sync
 
 For mise only:
 
@@ -70,6 +71,7 @@ Tracked configs live inside this repo, e.g.:
 config/nvim -> ~/.config/nvim
 config/mise -> ~/.config/mise
 config/starship.toml -> ~/.config/starship.toml
+config/ghostty/config.ghostty -> ~/Library/Application Support/com.mitchellh.ghostty/config.ghostty
 ```
 
 When adding new configs:

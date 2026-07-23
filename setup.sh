@@ -34,6 +34,9 @@ run_if_exists "scripts/link-zed.sh"
 step "Link Herdr"
 run_if_exists "scripts/link-herdr.sh"
 
+step "Link Ghostty"
+run_if_exists "scripts/link-ghostty.sh"
+
 step "Link Pi global skills"
 run_if_exists "scripts/link-pi-skills.sh"
 

@@ -20,6 +20,7 @@ setup.sh              Top-level setup wrapper
 config/               XDG config files symlinked into ~/.config
 shell/                Shell config files, when added
 scripts/              Small focused setup/link/sync scripts
+agents/               Global agent assets, such as Pi skills
 macos/                macOS defaults scripts, when added
 docs/                 Human notes for apps and setup
 AGENTS.md             Instructions for agents
@@ -41,9 +42,10 @@ Current setup order:
 4. `scripts/link-starship.sh` — symlink Starship config
 5. `scripts/link-zed.sh` — symlink Zed settings
 6. `scripts/link-herdr.sh` — symlink Herdr config
-7. `scripts/link-configs.sh` — symlink any remaining tracked configs into `~/.config`
-8. `scripts/sync-mise.sh` — install tools declared in mise config
-9. `scripts/sync-nvim.sh` — run LazyVim plugin sync
+7. `scripts/link-pi-skills.sh` — symlink Pi global skills
+8. `scripts/link-configs.sh` — symlink any remaining tracked configs into `~/.config`
+9. `scripts/sync-mise.sh` — install tools declared in mise config
+10. `scripts/sync-nvim.sh` — run LazyVim plugin sync
 
 For mise only:
 
@@ -99,6 +101,16 @@ config/nvim
 `config/nvim/.git` must not exist. The LazyVim starter is vendored as normal files inside this dotfiles repo.
 
 Commit `config/nvim/lazy-lock.json` for reproducible plugin versions. Do not commit plugin installation directories from Neovim data/cache/state paths.
+
+## Pi skills
+
+Global Pi skills live under:
+
+```text
+agents/skills -> ~/.pi/agent/skills
+```
+
+Each skill should normally be a directory containing `SKILL.md`. Keep skill instructions safe to publish and do not commit Pi auth, settings, sessions, logs, or model stores from `~/.pi/agent`.
 
 ## Safety rules
 

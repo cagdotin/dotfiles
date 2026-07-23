@@ -12,6 +12,8 @@ brew "ripgrep"
 brew "fd"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# Agent multiplexer that lives in your terminal
+brew "herdr"
 # Fast, disk space efficient package manager
 brew "pnpm"
 # Cross-shell prompt for astronauts

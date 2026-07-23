@@ -136,7 +136,7 @@ If adding new app configs, inspect them first. Prefer tracking only explicit saf
 
 Homebrew packages are managed by `Brewfile`.
 
-After intentional package changes, update the Brewfile manually or with care. Do not blindly re-dump if it would reintroduce removed/unwanted packages.
+After intentional package changes, update the Brewfile manually or with care. Do not blindly re-dump if it would remove intentional entries, reintroduce removed/unwanted packages, or miss tools installed outside Homebrew on the current machine. If comparing with the current machine, dump to a temporary file and review the diff manually.
 
 
 ## Agent behavior

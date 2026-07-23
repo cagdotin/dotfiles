@@ -15,8 +15,16 @@ Neovim/LazyVim-related tools managed there:
 Useful commands:
 
 ```bash
-brew bundle dump --file Brewfile --force
 brew bundle --file Brewfile
+```
+
+The `Brewfile` is curated manually. Do not blindly regenerate it with `brew bundle dump --force`, because Homebrew only dumps packages it currently manages and may remove intentional entries for apps/tools that are installed another way or not installed on the current machine yet.
+
+If you need to refresh it, dump to a temporary file and review the diff manually:
+
+```bash
+brew bundle dump --file /tmp/Brewfile.current --force
+diff -u Brewfile /tmp/Brewfile.current
 ```
 
 ## Apps seen on this machine

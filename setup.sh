@@ -52,5 +52,8 @@ run_if_exists "scripts/sync-agent-browser.sh"
 step "Sync Neovim / LazyVim"
 run_if_exists "scripts/sync-nvim.sh"
 
+step "Manual installs"
+echo "Review manual-install.md and install listed tools manually."
+
 step "Done"
 echo "Dotfiles setup complete."

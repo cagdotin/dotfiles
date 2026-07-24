@@ -2,8 +2,12 @@ tap "caskformula/caskformula"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/services"
+# Command-line tool to interact with exercism.io
+brew "exercism"
 # Distributed revision control system
 brew "git"
+# GitHub command-line tool
+brew "gh"
 # Modern Vim-fork required by LazyVim
 brew "neovim"
 # Optional/recommended LazyVim tools
@@ -28,5 +32,6 @@ cask "raycast"
 cargo "bat"
 cargo "coreutils"
 npm "@earendil-works/pi-coding-agent"
+npm "@plannotator/pi-extension"
 npm "agent-browser"
 npm "hunkdiff"

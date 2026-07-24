@@ -2,28 +2,45 @@
 set -euo pipefail
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SOURCE="$DOTFILES_DIR/agents/skills"
-TARGET="$HOME/.pi/agent/skills"
+SKILLS_SOURCE="$DOTFILES_DIR/agents/skills"
+SKILLS_TARGET="$HOME/.pi/agent/skills"
+SETTINGS_SOURCE="$DOTFILES_DIR/agents/settings.json"
+SETTINGS_TARGET="$HOME/.pi/agent/settings.json"
 BACKUP_DIR="$HOME/.pi-backup-$(date +%Y%m%d-%H%M%S)"
 
-if [ ! -d "$SOURCE" ]; then
-  echo "Missing $SOURCE"
+link_path() {
+  local source="$1"
+  local target="$2"
+  local backup_name="$3"
+
+  mkdir -p "$(dirname "$target")"
+
+  if [ -L "$target" ] && [ "$(readlink "$target")" = "$source" ]; then
+    echo "Already linked $target -> $source"
+    return 0
+  fi
+
+  if [ -e "$target" ] || [ -L "$target" ]; then
+    mkdir -p "$BACKUP_DIR/.pi/agent"
+    mv "$target" "$BACKUP_DIR/.pi/agent/$backup_name"
+    echo "Backed up $target -> $BACKUP_DIR/.pi/agent/$backup_name"
+  fi
+
+  ln -s "$source" "$target"
+  echo "Linked $target -> $source"
+}
+
+if [ ! -d "$SKILLS_SOURCE" ]; then
+  echo "Missing $SKILLS_SOURCE"
   echo "Expected Pi global skills at agents/skills inside the dotfiles repo."
   exit 1
 fi
 
-mkdir -p "$(dirname "$TARGET")"
-
-if [ -L "$TARGET" ] && [ "$(readlink "$TARGET")" = "$SOURCE" ]; then
-  echo "Already linked $TARGET -> $SOURCE"
-  exit 0
+if [ ! -f "$SETTINGS_SOURCE" ]; then
+  echo "Missing $SETTINGS_SOURCE"
+  echo "Expected Pi settings at agents/settings.json inside the dotfiles repo."
+  exit 1
 fi
 
-if [ -e "$TARGET" ] || [ -L "$TARGET" ]; then
-  mkdir -p "$BACKUP_DIR/.pi/agent"
-  mv "$TARGET" "$BACKUP_DIR/.pi/agent/skills"
-  echo "Backed up $TARGET -> $BACKUP_DIR/.pi/agent/skills"
-fi
-
-ln -s "$SOURCE" "$TARGET"
-echo "Linked $TARGET -> $SOURCE"
+link_path "$SKILLS_SOURCE" "$SKILLS_TARGET" "skills"
+link_path "$SETTINGS_SOURCE" "$SETTINGS_TARGET" "settings.json"

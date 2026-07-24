@@ -5,9 +5,10 @@ Personal macOS development environment and application configuration.
 ## Layout
 
 ```text
-Brewfile              Homebrew formulae/casks
+Brewfile              Homebrew formulae/casks/npm packages
+manual-install.md     Tools that require manual upstream installers
 config/               XDG configs linked into ~/.config
-agents/               Global agent assets, such as Pi skills
+agents/               Global agent assets, such as Pi skills and settings
 shell/                Shell config files
 scripts/              Focused bootstrap/link/sync scripts
 macos/                macOS defaults scripts
@@ -22,6 +23,8 @@ cd ~/dev/dotfiles
 ./setup.sh
 ```
 
+After setup, review [`manual-install.md`](manual-install.md) and install the listed tools manually.
+
 ## Tracked configs
 
 Currently safe-tracked from this machine:
@@ -33,6 +36,7 @@ Currently safe-tracked from this machine:
 - `~/.config/herdr/config.toml`
 - `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty`
 - `~/.pi/agent/skills` — global Pi skills
+- `~/.pi/agent/settings.json` — Pi user settings and package list
 
 ## Not tracked directly
 
@@ -59,23 +63,24 @@ and is symlinked to:
 ~/Library/Application Support/com.mitchellh.ghostty/config.ghostty
 ```
 
-## Pi skills
+## Pi
 
-Global Pi skills live at:
+Global Pi assets live under:
 
 ```text
-~/dev/dotfiles/agents/skills
+~/dev/dotfiles/agents
 ```
 
 and are symlinked to:
 
 ```text
-~/.pi/agent/skills
+~/.pi/agent/skills -> ~/dev/dotfiles/agents/skills
+~/.pi/agent/settings.json -> ~/dev/dotfiles/agents/settings.json
 ```
 
 Skills are available globally to Pi and are loaded on-demand based on their `description` or explicitly with `/skill:name`.
 
-The `agent-browser` CLI is installed as a global npm package from `Brewfile`; `setup.sh` also runs `scripts/sync-agent-browser.sh` to install its browser runtime.
+The `agent-browser` CLI is installed as a global npm package from `Brewfile`; `setup.sh` also runs `scripts/sync-agent-browser.sh` to install its browser runtime. Pi package configuration, including `npm:@plannotator/pi-extension`, is tracked in `agents/settings.json`.
 
 ## mise
 

@@ -43,11 +43,12 @@ Current setup order:
 5. `scripts/link-zed.sh` — symlink Zed settings
 6. `scripts/link-herdr.sh` — symlink Herdr config
 7. `scripts/link-ghostty.sh` — symlink Ghostty config
-8. `scripts/link-pi-skills.sh` — symlink Pi global skills
+8. `scripts/link-pi-skills.sh` — symlink Pi global skills and settings
 9. `scripts/link-configs.sh` — symlink any remaining tracked configs into `~/.config`
 10. `scripts/sync-mise.sh` — install tools declared in mise config
 11. `scripts/sync-agent-browser.sh` — install agent-browser browser runtime
 12. `scripts/sync-nvim.sh` — run LazyVim plugin sync
+13. Manual install reminder — review `manual-install.md`
 
 For mise only:
 
@@ -105,15 +106,16 @@ config/nvim
 
 Commit `config/nvim/lazy-lock.json` for reproducible plugin versions. Do not commit plugin installation directories from Neovim data/cache/state paths.
 
-## Pi skills
+## Pi
 
-Global Pi skills live under:
+Global Pi assets live under:
 
 ```text
 agents/skills -> ~/.pi/agent/skills
+agents/settings.json -> ~/.pi/agent/settings.json
 ```
 
-Each skill should normally be a directory containing `SKILL.md`. Keep skill instructions safe to publish and do not commit Pi auth, settings, sessions, logs, or model stores from `~/.pi/agent`.
+Each skill should normally be a directory containing `SKILL.md`. Keep skill instructions and settings safe to publish. Do not commit Pi auth, sessions, logs, model stores, package caches, or other local state from `~/.pi/agent`.
 
 When using the `agent-browser` skill, load the current workflow content from the installed CLI as instructed by the skill before running browser commands.
 

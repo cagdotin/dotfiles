@@ -5,7 +5,7 @@ mise is used for language/tool runtime management.
 ## Paths
 
 ```text
-~/dev/dotfiles/config/mise -> ~/.config/mise
+~/code/dotfiles/config/mise -> ~/.config/mise
 ```
 
 ## Current tools
@@ -15,7 +15,7 @@ Declared in `config/mise/config.toml`.
 ## Install/restore
 
 ```bash
-cd ~/dev/dotfiles
+cd ~/code/dotfiles
 ./scripts/bootstrap.sh
 ./scripts/link-mise.sh
 ./scripts/sync-mise.sh

@@ -18,8 +18,8 @@ docs/                 Notes about manual setup
 ## Restore on a new machine
 
 ```bash
-git clone git@github.com:YOUR_USERNAME/dotfiles.git ~/dev/dotfiles
-cd ~/dev/dotfiles
+git clone git@github.com:YOUR_USERNAME/dotfiles.git ~/code/dotfiles
+cd ~/code/dotfiles
 ./setup.sh
 ```
 
@@ -36,6 +36,7 @@ Currently safe-tracked from this machine:
 - `~/.config/herdr/config.toml`
 - `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty`
 - `~/.pi/agent/skills` — global Pi skills
+- `~/.pi/agent/extensions` — global Pi extensions
 - `~/.pi/agent/settings.json` — Pi user settings and package list
 
 ## Not tracked directly
@@ -54,7 +55,7 @@ Document their setup manually instead of committing their full directories.
 Ghostty is installed through `Brewfile` as a Homebrew cask. Its config lives at:
 
 ```text
-~/dev/dotfiles/config/ghostty/config.ghostty
+~/code/dotfiles/config/ghostty/config.ghostty
 ```
 
 and is symlinked to:
@@ -68,17 +69,18 @@ and is symlinked to:
 Global Pi assets live under:
 
 ```text
-~/dev/dotfiles/agents
+~/code/dotfiles/agents
 ```
 
 and are symlinked to:
 
 ```text
-~/.pi/agent/skills -> ~/dev/dotfiles/agents/skills
-~/.pi/agent/settings.json -> ~/dev/dotfiles/agents/settings.json
+~/.pi/agent/skills -> ~/code/dotfiles/agents/skills
+~/.pi/agent/extensions -> ~/code/dotfiles/agents/extensions
+~/.pi/agent/settings.json -> ~/code/dotfiles/agents/settings.json
 ```
 
-Skills are available globally to Pi and are loaded on-demand based on their `description` or explicitly with `/skill:name`.
+Skills are available globally to Pi and are loaded on-demand based on their `description` or explicitly with `/skill:name`. The global `update.ts` extension adds `/update` for updating Pi and reloading, plus `/update extensions` for updating extensions only and reloading.
 
 The `agent-browser` CLI is installed as a global npm package from `Brewfile`; `setup.sh` also runs `scripts/sync-agent-browser.sh` to install its browser runtime. Pi package configuration, including `npm:@plannotator/pi-extension`, is tracked in `agents/settings.json`.
 
@@ -87,7 +89,7 @@ The `agent-browser` CLI is installed as a global npm package from `Brewfile`; `s
 mise is installed through `Brewfile`. The mise config lives at:
 
 ```text
-~/dev/dotfiles/config/mise
+~/code/dotfiles/config/mise
 ```
 
 and is symlinked to:
@@ -113,7 +115,7 @@ To install mise-managed tools from `config/mise/config.toml`:
 Neovim is installed through `Brewfile`. The LazyVim config lives at:
 
 ```text
-~/dev/dotfiles/config/nvim
+~/code/dotfiles/config/nvim
 ```
 
 and is symlinked to:

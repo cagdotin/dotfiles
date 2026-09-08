@@ -5,13 +5,13 @@ This repo uses the official LazyVim starter layout.
 ## Paths
 
 ```text
-~/dev/dotfiles/config/nvim -> ~/.config/nvim
+~/code/dotfiles/config/nvim -> ~/.config/nvim
 ```
 
 ## Install/restore
 
 ```bash
-cd ~/dev/dotfiles
+cd ~/code/dotfiles
 ./scripts/bootstrap.sh
 ./scripts/link-nvim.sh
 ./scripts/sync-nvim.sh

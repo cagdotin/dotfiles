@@ -7,7 +7,7 @@ Guidance for coding agents working in this dotfiles repository.
 This repo manages personal macOS dotfiles and setup automation. The repo lives at:
 
 ```text
-~/dev/dotfiles
+~/code/dotfiles
 ```
 
 It should be portable to other machines and safe to publish to GitHub.

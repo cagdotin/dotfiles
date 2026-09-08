@@ -4,6 +4,8 @@ set -euo pipefail
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SKILLS_SOURCE="$DOTFILES_DIR/agents/skills"
 SKILLS_TARGET="$HOME/.pi/agent/skills"
+EXTENSIONS_SOURCE="$DOTFILES_DIR/agents/extensions"
+EXTENSIONS_TARGET="$HOME/.pi/agent/extensions"
 SETTINGS_SOURCE="$DOTFILES_DIR/agents/settings.json"
 SETTINGS_TARGET="$HOME/.pi/agent/settings.json"
 BACKUP_DIR="$HOME/.pi-backup-$(date +%Y%m%d-%H%M%S)"
@@ -36,6 +38,12 @@ if [ ! -d "$SKILLS_SOURCE" ]; then
   exit 1
 fi
 
+if [ ! -d "$EXTENSIONS_SOURCE" ]; then
+  echo "Missing $EXTENSIONS_SOURCE"
+  echo "Expected Pi global extensions at agents/extensions inside the dotfiles repo."
+  exit 1
+fi
+
 if [ ! -f "$SETTINGS_SOURCE" ]; then
   echo "Missing $SETTINGS_SOURCE"
   echo "Expected Pi settings at agents/settings.json inside the dotfiles repo."
@@ -43,4 +51,14 @@ if [ ! -f "$SETTINGS_SOURCE" ]; then
 fi
 
 link_path "$SKILLS_SOURCE" "$SKILLS_TARGET" "skills"
+
+for extension_source in "$EXTENSIONS_SOURCE"/*; do
+  if [ ! -e "$extension_source" ] && [ ! -L "$extension_source" ]; then
+    continue
+  fi
+
+  extension_name="$(basename "$extension_source")"
+  link_path "$extension_source" "$EXTENSIONS_TARGET/$extension_name" "extensions-$extension_name"
+done
+
 link_path "$SETTINGS_SOURCE" "$SETTINGS_TARGET" "settings.json"
